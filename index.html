@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pour Kerith ❤️</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-1: #1b0b15;
+    --bg-2: #4d1021;
+    --bg-3: #7d1f2f;
+    --card: rgba(255, 250, 245, 0.1);
+    --line: rgba(255, 222, 231, 0.35);
+    --text: #fff6f9;
+    --muted: #ffdfe8;
+    --accent: #ffd166;
+    --accent-2: #ff95ad;
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Manrope', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 209, 102, 0.18), transparent 35%),
+        radial-gradient(circle at 85% 10%, rgba(255, 149, 173, 0.2), transparent 42%),
+        radial-gradient(circle at 50% 85%, rgba(255, 235, 193, 0.15), transparent 36%),
+        linear-gradient(130deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+    overflow-x: hidden;
+}
+
+.glow {
+    position: fixed;
+    width: 36vmax;
+    height: 36vmax;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+    animation: drift 14s ease-in-out infinite alternate;
+}
+
+.glow.one {
+    background: #ff8fb3;
+    top: -12vmax;
+    left: -10vmax;
+}
+
+.glow.two {
+    background: #ffd166;
+    bottom: -14vmax;
+    right: -8vmax;
+    animation-duration: 18s;
+}
+
+@keyframes drift {
+    from { transform: translateY(0) translateX(0) scale(1); }
+    to { transform: translateY(20px) translateX(24px) scale(1.08); }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 56px 18px 40px;
+}
+
+.hero {
+    border: 1px solid var(--line);
+    background: linear-gradient(140deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 42px 28px;
+    text-align: center;
+    animation: reveal 900ms ease-out both;
+}
+
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid var(--line);
+}
+
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+    margin: 0;
+}
+
+h1 {
+    font-size: clamp(2.3rem, 4.8vw, 4rem);
+    margin-top: 14px;
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+.lead {
+    max-width: 700px;
+    margin: 18px auto 0;
+    line-height: 1.75;
+    color: var(--muted);
+    font-size: clamp(1rem, 2vw, 1.12rem);
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 26px;
+    text-decoration: none;
+    color: #2a0812;
+    background: linear-gradient(120deg, var(--accent), #ffe5a7);
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-weight: 700;
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    box-shadow: 0 12px 24px rgba(255, 209, 102, 0.3);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(255, 209, 102, 0.38);
+}
+
+.section {
+    margin-top: 28px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    backdrop-filter: blur(8px);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    margin-bottom: 8px;
+}
+
+.section p {
+    margin: 0;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.note {
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+    padding: 14px;
+    font-size: 0.96rem;
+    line-height: 1.6;
+}
+
+.note strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: #fff3d8;
+    margin-bottom: 4px;
+}
+
+.signature {
+    margin-top: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: #ffe9ef;
+}
+
+footer {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: rgba(255, 246, 249, 0.76);
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    font-size: 14px;
+    opacity: 0;
+    animation: floatUp 10s linear infinite;
+}
+
+.heart:nth-child(1) { left: 10%; animation-delay: 0.6s; }
+.heart:nth-child(2) { left: 24%; animation-delay: 2.8s; }
+.heart:nth-child(3) { left: 41%; animation-delay: 4.2s; }
+.heart:nth-child(4) { left: 58%; animation-delay: 1.7s; }
+.heart:nth-child(5) { left: 72%; animation-delay: 5.4s; }
+.heart:nth-child(6) { left: 88%; animation-delay: 3.6s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(0.7); opacity: 0; }
+    15% { opacity: 0.7; }
+    100% { transform: translateY(-110vh) scale(1.25); opacity: 0; }
+}
+
+@media (max-width: 820px) {
+    .container { padding-top: 30px; }
+    .hero, .section { padding: 22px 18px; border-radius: 18px; }
+    .grid { grid-template-columns: 1fr; }
+    .lead { text-align: left; }
+}
+
+@media (max-width: 560px) {
+    .container { padding: 20px 12px 28px; }
+    .badge {
+        font-size: 0.74rem;
+        letter-spacing: 0.1em;
+        padding: 7px 12px;
+    }
+    h1 {
+        font-size: clamp(1.9rem, 9vw, 2.5rem);
+        line-height: 1.15;
+    }
+    .lead {
+        margin-top: 14px;
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+    .button {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 16px;
+    }
+    .section h2 {
+        font-size: clamp(1.45rem, 7vw, 1.9rem);
+    }
+    .section p,
+    .note {
+        font-size: 0.93rem;
+        line-height: 1.65;
+    }
+    .note strong {
+        font-size: 1.25rem;
+    }
+    .signature {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero, .section {
+        padding: 18px 14px;
+        border-radius: 14px;
+    }
+    .button {
+        font-size: 0.95rem;
+        padding: 11px 14px;
+    }
+    .heart {
+        font-size: 12px;
+        animation-duration: 12s;
+    }
+}
+</style>
+</head>
+<body>
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<div class="hearts" aria-hidden="true">
+    <span class="heart">❤</span>
+    <span class="heart">❤</span>
+    <span class="heart">❤</span>
+    <span class="heart">❤</span>
+    <span class="heart">❤</span>
+    <span class="heart">❤</span>
+</div>
+
+<main class="container">
+    <section class="hero">
+        <span class="badge">Pour Kerith</span>
+        <h1>Chaque jour avec toi rend le monde plus doux.</h1>
+        <p class="lead">
+            Cette page, c'est un petit refuge pour te rappeler que ma place préférée,
+            c'est là où il y a ton rire, tes yeux et ta main dans la mienne.
+        </p>
+        <a href="#message" class="button">Lire la lettre <span aria-hidden="true">❤</span></a>
+    </section>
+
+    <section id="message" class="section reveal-on-scroll">
+        <h2>Ce que je ressens pour toi</h2>
+        <p>
+            Tu es mon calme dans le bruit, mon elan quand je doute et mon plus beau reflexe.
+            Avec toi, j'apprends une version plus belle de moi: plus sincere, plus patient,
+            plus vivant.
+        </p>
+    </section>
+
+    <section class="section reveal-on-scroll">
+        <h2>Nos moments preferes</h2>
+        <div class="grid">
+            <article class="note">
+                <strong>Les regards</strong>
+                Ceux qui disent tout, meme quand on ne parle pas.
+            </article>
+            <article class="note">
+                <strong>Les fous rires</strong>
+                Ceux qui tombent sans prevenir et qui restent dans le coeur.
+            </article>
+            <article class="note">
+                <strong>Les projets</strong>
+                Ceux qu'on construit doucement, mais ensemble.
+            </article>
+        </div>
+    </section>
+
+    <section class="section reveal-on-scroll">
+        <h2>Ma promesse</h2>
+        <p>
+            Je ne promets pas la perfection. Je promets la verite, le respect et la constance.
+            Je te choisis aujourd'hui, et je veux continuer a te choisir dans les petits jours
+            comme dans les grands.
+        </p>
+        <p class="signature">Avec tout mon amour.</p>
+        <p>Je t'aime plusque mes mots ....</p>
+    </section>
+
+    <footer>Fait avec amour par Ton EBOLA - 2026</footer>
+</main>
+
+<script>
+const sections = document.querySelectorAll('.reveal-on-scroll');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.18 });
+
+sections.forEach((section) => observer.observe(section));
+</script>
+</body>
+</html>
